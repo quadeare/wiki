@@ -2,7 +2,7 @@
 title: RBAC management snippets
 description: 
 published: true
-date: 2020-03-23T14:40:02.330Z
+date: 2020-03-23T14:43:44.142Z
 tags: 
 ---
 
