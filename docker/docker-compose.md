@@ -2,13 +2,36 @@
 title: Docker-compose
 description: 
 published: true
-date: 2020-03-23T13:24:37.985Z
+date: 2020-03-23T13:27:35.458Z
 tags: 
 ---
 
 # Docker-compose
 
-## Docker-compose yml example
+## Docker-compose simple yml example
+
+```yml
+version: "3"
+services:
+    
+  db:
+    image: postgres:11-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: myapp
+    restart: unless-stopped
+    volumes:
+      - data:/var/lib/postgresql/data
+
+volumes:
+  data:
+
+```
+
+## Docker-compose "complexe" yml example
 
 ```yml
 version: "3"
