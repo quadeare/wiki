@@ -2,7 +2,7 @@
 title: Kubectl tricks
 description: 
 published: true
-date: 2020-03-23T15:20:13.104Z
+date: 2020-03-23T15:24:30.184Z
 tags: 
 ---
 
@@ -49,6 +49,19 @@ kubectl get componentstatus
 ```bash
 kubectl get nodes
 ```
+
+### Taints
+
+#### Taint a node
+
+```bash
+kubectl taint nodes <NODE> key=<VALUE>:<TAINT_EFFECT>
+```
+
+* **NoSchedule** : Pods that do not tolerate this taint are not scheduled on the node.
+* **PreferNoSchedule** : Kubernetes avoids scheduling Pods that do not tolerate this taint onto the node.
+* **NoExecute** : Pod is evicted from the node if it is already running on the node, and is not scheduled onto the node if it is not yet running on the node.
+
 
 ## Contexts
 
