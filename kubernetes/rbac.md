@@ -2,7 +2,7 @@
 title: RBAC management snippets
 description: 
 published: true
-date: 2020-03-23T10:29:02.221Z
+date: 2020-03-23T14:40:02.330Z
 tags: 
 ---
 
@@ -87,3 +87,7 @@ roleRef:
   name: get-pods
   apiGroup: rbac.authorization.k8s.io
 ```
+  
+# Another main menu
+  
+## Another sub menu
