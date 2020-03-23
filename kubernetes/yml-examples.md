@@ -2,7 +2,7 @@
 title: K8s Yml file examples
 description: 
 published: true
-date: 2020-03-23T13:18:41.744Z
+date: 2020-03-23T15:47:27.173Z
 tags: 
 ---
 
@@ -79,4 +79,42 @@ spec:
     - example.domaine.tld
     secretName: pass-cert
 
+```
+
+## Config map
+
+```yml
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: example-configmap 
+data:
+  config.yml: |-
+    administration:
+      authentication:
+        enabled: false
+```
+
+## Secret
+
+### Base64 encoding
+
+```bash
+echo -n 'admin' | base64
+YWRtaW4=
+echo -n '1f2d1e2e67df' | base64
+MWYyZDFlMmU2N2Rm
+```
+
+### Secret yml example
+
+```bash
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  username: YWRtaW4=
+  password: MWYyZDFlMmU2N2Rm
 ```
