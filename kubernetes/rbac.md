@@ -87,7 +87,3 @@ roleRef:
   name: get-pods
   apiGroup: rbac.authorization.k8s.io
 ```
-  
-# Another main menu
-  
-## Another sub menu
