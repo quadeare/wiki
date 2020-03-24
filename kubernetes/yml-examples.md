@@ -2,7 +2,7 @@
 title: K8s Yml file examples
 description: 
 published: true
-date: 2020-03-23T15:47:27.173Z
+date: 2020-03-24T19:50:31.965Z
 tags: 
 ---
 
@@ -33,6 +33,152 @@ spec:
         ports:
         - containerPort: 80
 ```
+
+## Pod
+
+### Simple Pod
+
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+    env:
+      - name: ENV_VARIABLE
+        value: "Hello Kubernetes!"
+```
+
+### Pod with fieldRef
+
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    command: ['sh', '-c', '$MESSAGE && sleep 3600']
+  env:
+    - name: MESSAGE
+      valueFrom:
+        fieldRef:
+          fieldPath: "status.hostIP"
+```
+
+> **fieldRef possible values :**
+> 
+> * metadata.name - the pod’s name
+> * metadata.namespace - the pod’s namespace
+> * metadata.uid - the pod’s UID, available since v1.8.0-alpha.2
+> * metadata.labels - all of the pod’s labels, formatted as label-key="escaped-label-value" with one label per line
+> * metadata.annotations - all of the pod’s annotations, formatted as annotation-key="escaped-annotation-value" with one annotation per line
+> * status.podIP - the pod’s IP address
+> * spec.serviceAccountName - the pod’s service account name, available since v1.4.0-alpha.3
+> * spec.nodeName - the node’s name, available since v1.4.0-alpha.3
+> * status.hostIP - the node’s IP, available since v1.7.0-alpha.1
+{.is-success}
+
+
+### Pod with resourceFieldRef
+  
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    command: ['sh', '-c', '$MESSAGE && sleep 3600']
+  env:
+    - name: MESSAGE
+      valueFrom:
+        resourceFieldRef:
+          resource:: "requests.cpu"
+```
+
+> **resourceFieldRef support :**
+> 
+> * limits.cpu
+> * limits.memory
+> * limits.ephemeral-storage
+> * requests.cpu
+> * requests.memory
+> * requests.ephemeral-storage
+
+{.is-success}
+
+### Pod with toleration
+
+K8s doc : https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+  tolerations:
+  - key: "mykey"
+    operator: "Exists"
+    effect: "NoSchedule"
+```
+
+> An **empty key** with operator **Exists** matches all keys, values and effects which means **this will tolerate everything**.
+> 
+> ```yml
+> tolerations:
+> - operator: "Exists"
+> ```
+> 
+> An **empty effect** matches all effects with **key key**.
+> 
+> ```yml
+> tolerations:
+> - key: "key"
+>   operator: "Exists"
+> ```
+{.is-info}
+
+
+### Pod with registry secret
+
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: myreg:5000/busybox
+    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+  imagePullSecrets:
+  - name: "myreg-secret"
+```
+
 
 ## Service
 
