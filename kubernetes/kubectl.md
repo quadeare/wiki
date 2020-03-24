@@ -2,7 +2,7 @@
 title: Kubectl tricks
 description: 
 published: true
-date: 2020-03-23T15:26:17.299Z
+date: 2020-03-24T07:53:08.355Z
 tags: 
 ---
 
@@ -16,21 +16,33 @@ tags:
 export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/config2:$HOME/.kube/config3
 ```
 
-### Generate manifest template
+### Get server and client verion
 
-#### Generic command :
+```bash
+kubectl version
+```
+
+## Manifests
+
+## Apply manifest
+
+```bash
+kubectl apply -f <manifest>.yml
+```
+
+### Generic command :
 
 ```bash
 kubectl create $(OBJECT_TYPE) $(OBJECT_TYPE_OPTIONS) $(RESOURCE_NAME) --dry-run -o yaml > manifest.yaml
 ```
 
-#### Deployment example :
+### Deployment example :
 
 ```bash
 kubectl create deployment busybox-test --image=busybox --dry-run -o yaml > deployment.yaml
 ```
 
-#### Configmap example :
+### Configmap example :
 
 ```bash
 kubectl create configmap configmap-test --dry-run -o yaml > config-map.yaml
