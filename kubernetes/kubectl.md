@@ -2,13 +2,13 @@
 title: Kubectl tricks
 description: 
 published: true
-date: 2020-03-24T10:24:11.288Z
+date: 2020-03-26T10:43:54.754Z
 tags: 
 ---
 
 # Kubectl tricks
 
-## Common
+## Client config
 
 ### Multiple contexts example
 
@@ -20,6 +20,26 @@ export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/config2:$HOME/.kube/config3
 
 ```bash
 kubectl version
+```
+
+### Ignore CA unknown authority
+
+#### Kubectl command
+
+```bash
+kubectl config set-cluster ${KUBE_CONTEXT} --insecure-skip-tls-verify=true
+```
+
+#### Or edit config file
+
+```bash
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://my.cluster.com
+  name: my-cluster
+contexts:
 ```
 
 ## Manifests
