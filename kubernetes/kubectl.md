@@ -2,7 +2,7 @@
 title: Kubectl tricks
 description: 
 published: true
-date: 2020-03-26T10:43:54.754Z
+date: 2020-03-26T10:48:00.776Z
 tags: 
 ---
 
