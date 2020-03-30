@@ -2,7 +2,7 @@
 title: Giltab K8S deployment
 description: 
 published: true
-date: 2020-03-30T07:28:30.329Z
+date: 2020-03-30T08:03:13.528Z
 tags: 
 ---
 
@@ -23,3 +23,14 @@ Redis : https://github.com/bitnami/charts/tree/master/bitnami/redis
 ## Storage types
 
 URL : https://docs.gitlab.com/ee/administration/repository_storage_types.html
+
+
+## Helm task - Use legacy storage
+
+### Switch storage to legacy mode
+
+![selection_028.png](/kubernetes-projects/gitlab/selection_028.png)
+
+### Customize volume claim
+
+URL : https://gitlab.com/gitlab-org/charts/gitlab/-/blob/v3.2.1/charts/gitlab/charts/gitaly/templates/statefulset.yml#L186
