@@ -2,7 +2,7 @@
 title: Giltab K8S deployment
 description: 
 published: true
-date: 2020-03-30T08:03:13.528Z
+date: 2020-03-30T13:15:23.100Z
 tags: 
 ---
 
