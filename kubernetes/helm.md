@@ -2,7 +2,7 @@
 title: Helm
 description: 
 published: true
-date: 2020-04-01T08:14:01.051Z
+date: 2020-04-02T08:19:56.365Z
 tags: 
 ---
 
@@ -54,8 +54,14 @@ helm get values <helm_deployment>
 
 ### Helm upgrade deployment
 
+#### With values as arguments
 ```bash
 helm upgrade <deployment_name> <repo_name>/<chart> --set <key>=<value> -n <namespace>
+```
+
+#### With values.yml file
+```bash
+helm upgrade <deployment_name> <repo_name>/<chart> -f values.yml
 ```
 
 #### Example with Rancher
