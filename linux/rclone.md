@@ -2,7 +2,7 @@
 title: Rclone
 description: 
 published: true
-date: 2020-04-04T09:02:48.579Z
+date: 2020-04-04T21:08:59.714Z
 tags: 
 ---
 
@@ -38,3 +38,5 @@ WantedBy=gmedia.service
 
 
 Use personal API key : https://rclone.org/drive/#making-your-own-client-id
+
+Use cache feature : https://rclone.org/cache/
