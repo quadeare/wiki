@@ -2,7 +2,7 @@
 title: Kubectl cheat
 description: 
 published: true
-date: 2020-05-05T07:20:17.195Z
+date: 2020-05-05T07:31:55.453Z
 tags: 
 ---
 
@@ -10,7 +10,7 @@ tags:
 
 Sources : Get from https://linuxacademy.com/blog/containers/kubernetes-cheat-sheet/
 
-## ViewingResource Information
+## Get ressources informations
 
 ### Nodes
 
