@@ -2,7 +2,7 @@
 title: Kubectl cheat
 description: 
 published: true
-date: 2020-05-05T07:31:55.453Z
+date: 2020-05-05T07:38:27.200Z
 tags: 
 ---
 
