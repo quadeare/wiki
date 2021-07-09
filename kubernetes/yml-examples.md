@@ -2,8 +2,10 @@
 title: K8s Yml file examples
 description: 
 published: true
-date: 2020-03-24T19:50:31.965Z
+date: 2021-07-09T13:08:34.542Z
 tags: 
+editor: markdown
+dateCreated: 2020-03-23T13:18:41.744Z
 ---
 
 # Kubernetes Yml example
@@ -264,3 +266,21 @@ data:
   username: YWRtaW4=
   password: MWYyZDFlMmU2N2Rm
 ```
+
+## PV / PVC
+
+### PVC
+
+```bash
+apiVersion: v1
+kind: PersistentVolume
+metadata: 
+  name: test-volume
+spec: 
+  accessModes: 
+    - ReadWriteOnce
+  capacity: 
+    storage: 200Gi
+  storageClassName: ""
+```
+
