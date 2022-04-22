@@ -2,7 +2,7 @@
 title: Kubectl cheat
 description: 
 published: true
-date: 2020-11-05T09:42:01.340Z
+date: 2022-04-22T12:07:26.086Z
 tags: 
 editor: markdown
 dateCreated: 2020-05-05T07:20:17.195Z
@@ -84,6 +84,12 @@ csinodes                                       storage.k8s.io                 fa
 storageclasses                    sc           storage.k8s.io                 false        StorageClass
 volumeattachments                              storage.k8s.io                 false        VolumeAttachment
 
+```
+
+### Ephemeral pod
+
+```bash
+kubectl run my-shell --rm -i --tty --image ubuntu -- bash
 ```
 
 ### Nodes
