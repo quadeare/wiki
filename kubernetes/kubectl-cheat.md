@@ -2,7 +2,7 @@
 title: Kubectl cheat
 description: 
 published: true
-date: 2022-04-22T12:07:26.086Z
+date: 2022-05-23T12:25:38.439Z
 tags: 
 editor: markdown
 dateCreated: 2020-05-05T07:20:17.195Z
@@ -86,11 +86,25 @@ volumeattachments                              storage.k8s.io                 fa
 
 ```
 
+## Pods
 ### Ephemeral pod
 
 ```bash
 kubectl run my-shell --rm -i --tty --image ubuntu -- bash
 ```
+
+## Secrets
+
+### TLS from files
+
+```bash
+kubectl create secret tls tls-certificates --key=cert.key --cert=cert.crt --dry-run=client -o yaml
+```
+
+### Generic from file
+ ```bash
+ kubectl create secret generic wikijs --from-literal=postgresql-password=password 
+ ```
 
 ### Nodes
 
