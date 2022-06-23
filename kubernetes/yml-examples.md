@@ -2,7 +2,7 @@
 title: K8s Yml file examples
 description: 
 published: true
-date: 2022-06-23T13:41:24.400Z
+date: 2022-06-23T13:51:29.159Z
 tags: 
 editor: markdown
 dateCreated: 2020-03-23T13:18:41.744Z
@@ -55,6 +55,31 @@ spec:
     env:
       - name: ENV_VARIABLE
         value: "Hello Kubernetes!"
+```
+
+### Pod with volume
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-wks
+spec:
+  containers:
+  - image: harbor.gms.dev.lab/jfrog-platform/alpine:3.14.2
+    name: volume-wks
+    command:
+    - 'tail'
+    - '-f'
+    - '/dev/null'
+
+    volumeMounts:
+    - mountPath: /test
+      name: test-volume
+  volumes:
+  - name: test
+    persistentVolumeClaim:
+      claimName: test-volume
 ```
 
 ### Pod with fieldRef
