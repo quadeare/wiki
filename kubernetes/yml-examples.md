@@ -2,7 +2,7 @@
 title: K8s Yml file examples
 description: 
 published: true
-date: 2021-07-09T13:08:34.542Z
+date: 2022-06-23T13:41:24.400Z
 tags: 
 editor: markdown
 dateCreated: 2020-03-23T13:18:41.744Z
@@ -273,14 +273,15 @@ data:
 
 ```bash
 apiVersion: v1
-kind: PersistentVolume
-metadata: 
-  name: test-volume
-spec: 
-  accessModes: 
+kind: PersistentVolumeClaim
+metadata:
+  name: test
+spec:
+  accessModes:
     - ReadWriteOnce
-  capacity: 
-    storage: 200Gi
+  resources:
+    requests:
+      storage: 2Gi
   storageClassName: ""
 ```
 
