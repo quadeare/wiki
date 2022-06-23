@@ -2,7 +2,7 @@
 title: K8s Yml file examples
 description: 
 published: true
-date: 2022-06-23T13:51:29.159Z
+date: 2022-06-23T13:53:16.220Z
 tags: 
 editor: markdown
 dateCreated: 2020-03-23T13:18:41.744Z
@@ -63,11 +63,11 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: volume-wks
+  name: test
 spec:
   containers:
-  - image: harbor.gms.dev.lab/jfrog-platform/alpine:3.14.2
-    name: volume-wks
+  - image: busybox
+    name: test
     command:
     - 'tail'
     - '-f'
